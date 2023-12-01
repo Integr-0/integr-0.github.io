@@ -16,7 +16,7 @@ import backImg from './assets/Rectangle 2.png'
 function App() {
   return (
       <>
-          <img style={{ width: "100%", height: "100%", left: 0, top: 0, position: 'absolute' }} src={backImg} />
+          <img style={{ width: "100%", height: "100%", left: 0, top: 0, position: 'absolute', backgroundRepeat: "no-repeat", objectFit: "cover" }} src={backImg} />
           <div style={{ alignItems: 'center', display: 'flex', marginLeft: "auto", marginRight: "auto", marginTop: "5%", justifyContent: "space-evenly" }}>
               <div style={{ width: "467px", height: "339", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "auto", marginRight: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
                   <img style={{ width: 233, height: 233, marginLeft: "10px", marginRight: "10px", marginTop: "10px", marginBottom: "10px", borderRadius: "120px", boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} src={logoImg} />
