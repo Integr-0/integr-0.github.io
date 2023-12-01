@@ -1,4 +1,17 @@
 import './App.css'
+import cSharpImg from './assets/csharp.png'
+import cssImg from './assets/css.png'
+import htmlImg from './assets/html.png'
+import javaImg from './assets/java.png'
+import jsImg from './assets/js.png'
+import kotlinImg from './assets/kotlin.png'
+import linkImg from './assets/link.png'
+import logoImg from './assets/logo.png'
+import bookImg from './assets/newBook.png'
+import pythonImg from './assets/python.png'
+import reactImg from './assets/react.png'
+import backGroundImg from './assets/Rectangle 2.png'
+import tsImg from './assets/ts.png'
 
 function App() {
   return (
