@@ -11,6 +11,7 @@ import bookImg from './assets/newBook.png'
 import pythonImg from './assets/python.png'
 import reactImg from './assets/react.png'
 import tsImg from './assets/ts.png'
+import backImg from './assets/Rectangle 2.png'
 
 function App() {
   return (
@@ -76,5 +77,6 @@ function App() {
 
   )
 }
+backImg
 
 export default App
