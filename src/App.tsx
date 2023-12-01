@@ -17,17 +17,28 @@ function App() {
   return (
       <>
           <img style={{ width: "100%", height: "100%", left: 0, top: 0, position: 'absolute', backgroundRepeat: "no-repeat", objectFit: "cover" }} src={backImg} />
-          <div style={{ alignItems: 'center', display: 'flex', marginLeft: "auto", marginRight: "auto", marginTop: "5%", justifyContent: "space-evenly" }}>
-              <div style={{ width: "467px", height: "339", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "auto", marginRight: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
-                  <img style={{ width: 233, height: 233, marginLeft: "10px", marginRight: "10px", marginTop: "10px", marginBottom: "10px", borderRadius: "120px", boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} src={logoImg} />
+
+          <div style={{ alignItems: 'center', display: 'flex', marginLeft: "auto", marginRight: "auto", marginTop: "50" }}>
+              <div style={{ width: "467px", height: "339", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%", marginRight: "20px" }}>
+                  <img style={{ width: 233, height: 233, marginLeft: "30px", marginRight: "10px", marginTop: "10px", marginBottom: "10px", borderRadius: "120px", boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} src={logoImg} />
 
                   <div style={{ width: 334, height: 233, marginTop: "120px", padding: "10px" }}>
                       <div style={{ color: '#6D5A5A', fontSize: 40, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>Erik</div>
-                      <div style={{ color: '#6D5A5A', fontSize: 20, fontFamily: 'Arial', fontWeight: '300', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>Integr</div>
+                      <div style={{ color: '#6D5A5A', fontSize: 20, fontFamily: 'Arial', marginLeft: "3px", fontWeight: '300', wordWrap: 'break-word', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>Integr</div>
                   </div>
               </div>
 
-              <div style={{ width: "213px", height: "375", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "auto", marginRight: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
+              <div style={{ width: "567px", padding: "8px", height: "339", backdropFilter: 'blur(2.5px)', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginLeft: "20px", marginRight: "20px", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
+                  
+                  <div style={{ color: '#6D5A5A', fontWeight: '600', width: 567, height: 339, padding: "10px", lineHeight: "10px", textAlign: "left", fontFamily: "Arial", fontSize: "30px"}}>
+                      <p style={{ marginLeft: "20px" }}>Participating in Advent of Code</p>
+                      <p style={{ marginLeft: "20px" }}>Trying to improve at React</p>
+                      <p style={{ marginLeft: "20px" }}>Kotlin is now my favorite language</p>
+                      <p style={{ marginLeft: "20px" }}>. . .</p>
+                  </div>
+              </div>
+
+              <div style={{ width: "213px", height: "375", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginRight: "auto", marginLeft: "20px", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
                   <div style={{ width: 213, height: 375, position: 'relative' }}>
                       <div style={{ width: 111, height: 28, left: 51, top: 276, position: 'absolute' }}>
                           <img style={{ width: 28.09, height: 28, left: 0, top: 0, position: 'absolute' }} src={linkImg} />
@@ -48,11 +59,10 @@ function App() {
                       </div>
                   </div>
               </div>
-
-              
           </div>
-          <div style={{ alignItems: 'center', display: 'flex', marginLeft: "auto", marginRight: "auto", marginTop: "5%", justifyContent: "space-evenly" }}>
-              <div style={{ width: "701px", height: "107", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "auto", marginRight: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
+
+          <div style={{ alignItems: 'center', display: 'flex', marginLeft: "auto", marginRight: "auto", marginTop: "50"}}>
+              <div style={{ width: "701px", height: "107", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginRight: "20px", marginLeft: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
                 
                   <div style={{ width: 701, height: 107 }}>
                       <img style={{ width: 50, height: 50, left: 47, top: 29, position: 'absolute' }} src={kotlinImg} />
@@ -70,7 +80,13 @@ function App() {
               </div>
               
               
-             
+              <div style={{ width: "28 7px", height: "107", backdropFilter: 'blur(2.5px)', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', display: 'flex', marginLeft: "20px", marginRight: "auto", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
+
+                  <div style={{ width: 287, height: 107 }}>
+                      <div style={{ left: 35, top: 25, position: 'absolute', color: '#6D5A5A', fontSize: 20, fontFamily: 'Arial', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', fontWeight: '800', wordWrap: 'break-word' }}>Ask me about Kotlin and Java :)</div>
+                  </div>
+
+              </div>
           </div>
           
       </>
