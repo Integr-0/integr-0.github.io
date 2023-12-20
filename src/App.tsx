@@ -28,10 +28,9 @@ function App() {
                   </div>
               </div>
 
-              <div style={{ width: "567px", padding: "8px", height: "339", backdropFilter: 'blur(2.5px)', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginLeft: "20px", marginRight: "20px", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
+              <div style={{ width: "567px", padding: "8px", height: "339", backdropFilter: 'blur(2.5px)', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginLeft: "30px", marginRight: "30px", background: 'rgba(177.44, 177.44, 177.44, 0.75)', borderRadius: 46, marginTop: "5%" }}>
                   
                   <div style={{ color: '#6D5A5A', fontWeight: '600', width: 567, height: 339, padding: "10px", lineHeight: "10px", textAlign: "left", fontFamily: "Arial", fontSize: "30px"}}>
-                      <p style={{ marginLeft: "20px" }}>Participating in Advent of Code</p>
                       <p style={{ marginLeft: "20px" }}>Trying to improve at React</p>
                       <p style={{ marginLeft: "20px" }}>Kotlin is now my favorite language</p>
                       <p style={{ marginLeft: "20px" }}>. . .</p>
@@ -84,8 +83,8 @@ function App() {
 
                   <div style={{ width: 287, height: 107 }}>
                       <div style={{ left: 35, top: 25, position: 'absolute', color: '#6D5A5A', fontSize: 20, fontFamily: 'Arial', textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', fontWeight: '800', wordWrap: 'break-word' }}>Ask me about Kotlin and Java :)</div>
+                      
                   </div>
-
               </div>
           </div>
           
