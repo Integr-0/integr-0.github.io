@@ -32,7 +32,7 @@ function App() {
                   
                   <div style={{ color: '#6D5A5A', fontWeight: '600', width: 567, height: 339, padding: "10px", lineHeight: "10px", textAlign: "left", fontFamily: "Arial", fontSize: "30px"}}>
                       <p style={{ marginLeft: "20px" }}>Trying to improve at React</p>
-                      <p style={{ marginLeft: "20px" }}>Kotlin is now my favorite language</p>
+                      <p style={{ marginLeft: "20px" }}>Kotlin is now my favorite language!</p>
                       <p style={{ marginLeft: "20px" }}>. . .</p>
                   </div>
               </div>
