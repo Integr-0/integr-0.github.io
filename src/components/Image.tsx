@@ -3,7 +3,5 @@ interface Prop {
 }
 
 export default function Image(props: Prop) {
-    return (
-        <img alt="image" src={props.src} className="icon" />
-    );
+    return <img alt="image" src={props.src} className="icon" />;
 }
