@@ -11,7 +11,7 @@ export default function card(prop: Prop) {
             style={{
                 margin: "auto",
                 marginTop: "40px",
-                backgroundColor: "rgba(177, 177, 177, 0.75)",
+                backgroundColor: "rgba(177, 177, 177, 0.35)",
                 boxShadow: "rgba(0, 0, 0, 0.25) 0px 4px 4px",
                 borderRadius: "40px",
             }}

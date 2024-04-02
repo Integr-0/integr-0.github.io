@@ -14,6 +14,7 @@ import MainBox from "./components/MainBox";
 import Box from "./components/Box";
 import LinkButton from "./components/LinkButton";
 import Image from "./components/Image";
+import Icon from "./components/Icon";
 
 function App() {
     return (
@@ -24,15 +25,16 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <p className="title_center">
-                                <i className="fa-solid fa-person" /> About me
-                            </p>
+                            <Icon text="About me" icon="fa-solid fa-person"/>
+
                             <h5 className="card-title">
                                 <h4>Hi, im Erik!</h4>
                                 I'm a developer from <b>Austria</b> who likes to
                                 try out different stuff.
                                 <br />I mainly code in <b>Java</b> or <b>Kotlin</b> (I don't really do Front end)
                             </h5>
+
+                            <img alt="image" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vn7n24fzkq&theme=transparent" className="icon" style={{}}/>
                         </div>
                     }
                 />
@@ -40,9 +42,7 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <p className="title_center">
-                                <i className="fa-solid fa-language" /> Languages
-                            </p>
+                            <Icon text="Languages" icon="fa-solid fa-language"/>
 
                             <p className="icon_wrapper_pc">
                                 <Image src={kotlin} />
@@ -77,20 +77,26 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <p className="title_center">
-                                <i className="fa-solid fa-code" /> Some Projects
-                            </p>
+                            <Icon text="Some Projects" icon="fa-solid fa-code"/>
 
                             <Card
                                 title="ContentAutomation"
                                 bio="Automatically generates clips of a length of around 30 seconds. Perfect for platforms like TikTok and YouTube-shorts."
                                 link="https://github.com/Integr-0/ContentAutomation"
                             />
+
                             <Card
                                 title="Trajectory"
                                 bio="Trajectory is a fast event system Kotlin."
                                 link="https://github.com/Integr-0/Trajectory"
                             />
+
+                            <Card
+                                title="RegistryTracker"
+                                bio="Track entries in Json format."
+                                link="https://github.com/Integr-0/RegistryTracker"
+                            />
+
                             <Card
                                 title="JsonCompiler"
                                 bio="Executes Json like normal code..."
@@ -103,14 +109,13 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <p className="title_center">
-                                <i className="fa-solid fa-link" /> Links
-                            </p>
+                            <Icon text="Links" icon="fa-solid fa-link"/>
 
                             <LinkButton
                                 link="https://github.com/Integr-0"
                                 name="GitHub"
                             />
+
                             <LinkButton
                                 link="https://discordapp.com/users/688059979105697844"
                                 name="Discord"
@@ -119,6 +124,7 @@ function App() {
                     }
                 />
             </div>
+
             <br />
         </>
     );
