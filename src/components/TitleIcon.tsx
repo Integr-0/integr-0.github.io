@@ -3,7 +3,7 @@ interface Prop {
     icon: string;
 }
 
-export default function Icon(props: Prop) {
+export default function TitleIcon(props: Prop) {
     return (
         <p className={"title_center"}>
             <i className={props.icon} /> {props.text}
