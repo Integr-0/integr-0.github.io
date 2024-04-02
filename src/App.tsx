@@ -14,7 +14,8 @@ import MainBox from "./components/MainBox";
 import Box from "./components/Box";
 import LinkButton from "./components/LinkButton";
 import Image from "./components/Image";
-import Icon from "./components/Icon";
+import TitleIcon from "./components/TitleIcon";
+import StatImage from "./components/StatsImage";
 
 function App() {
     return (
@@ -25,7 +26,7 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <Icon text="About me" icon="fa-solid fa-person"/>
+                            <TitleIcon text="About me" icon="fa-solid fa-person"/>
 
                             <h5 className="card-title">
                                 <h4>Hi, im Erik!</h4>
@@ -33,8 +34,6 @@ function App() {
                                 try out different stuff.
                                 <br />I mainly code in <b>Java</b> or <b>Kotlin</b> (I don't really do Front end)
                             </h5>
-
-                            <img alt="image" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vn7n24fzkq&theme=transparent" className="icon" style={{}}/>
                         </div>
                     }
                 />
@@ -42,7 +41,7 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <Icon text="Languages" icon="fa-solid fa-language"/>
+                            <TitleIcon text="Languages" icon="fa-solid fa-language"/>
 
                             <p className="icon_wrapper_pc">
                                 <Image src={kotlin} />
@@ -77,7 +76,20 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <Icon text="Some Projects" icon="fa-solid fa-code"/>
+                            <TitleIcon text="Stats" icon="fa-solid fa-chart-pie"/>
+                            
+                            <div className="form-inline">
+                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent"/>
+                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                            </div>
+                        </div>
+                    }
+                />
+
+                <Box
+                    content={
+                        <div className="card-body">
+                            <TitleIcon text="Some Projects" icon="fa-solid fa-code"/>
 
                             <Card
                                 title="ContentAutomation"
@@ -109,7 +121,7 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <Icon text="Links" icon="fa-solid fa-link"/>
+                            <TitleIcon text="Links" icon="fa-solid fa-link"/>
 
                             <LinkButton
                                 link="https://github.com/Integr-0"
