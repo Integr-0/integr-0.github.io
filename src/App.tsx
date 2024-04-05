@@ -115,11 +115,10 @@ function App() {
                                 icon="fa-solid fa-code"
                             />
 
-                            <ImageCard
+                            <Card
                                 title="ContentAutomation"
                                 bio="Automatically generates clips of a length of around 30 seconds. Perfect for platforms like TikTok and YouTube-shorts."
                                 link="https://github.com/Integr-0/ContentAutomation"
-                                img={icon}
                             />
 
                             <Card
