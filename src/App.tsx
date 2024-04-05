@@ -1,5 +1,6 @@
 import "./App.css";
 import csharp from "./assets/csharp.png";
+import git from "./assets/git.png";
 import css from "./assets/css.png";
 import html from "./assets/html.png";
 import java from "./assets/java.png";
@@ -9,6 +10,9 @@ import python from "./assets/python.png";
 import react from "./assets/react.png";
 import typescript from "./assets/typescript.png";
 import icon from "./assets/icon.png";
+import sql from "./assets/mysql.svg";
+import figma from "./assets/figma.svg";
+
 import Card from "./components/Card";
 import MainBox from "./components/MainBox";
 import Box from "./components/Box";
@@ -16,7 +20,7 @@ import LinkButton from "./components/LinkButton";
 import Image from "./components/Image";
 import TitleIcon from "./components/TitleIcon";
 import StatImage from "./components/StatsImage";
-import ImageCard from "./components/ImageCard";
+import StatImagePhone from "./components/StatImagePhone";
 
 function App() {
     return (
@@ -61,6 +65,9 @@ function App() {
                                 <Image src={react} />
                                 <Image src={typescript} />
                                 <Image src={javascript} />
+                                <Image src={git} />
+                                <Image src={sql} />
+                                <Image src={figma} />
                             </p>
 
                             <p className="icon_wrapper_phone">
@@ -68,14 +75,21 @@ function App() {
                                 <Image src={java} />
                                 <Image src={csharp} />
                                 <Image src={python} />
-                                <Image src={css} />
+                                
                             </p>
 
                             <p className="icon_wrapper_phone">
+                                <Image src={css} />
                                 <Image src={html} />
                                 <Image src={react} />
                                 <Image src={typescript} />
+                            </p>
+
+                            <p className="icon_wrapper_phone">
                                 <Image src={javascript} />
+                                <Image src={git} />
+                                <Image src={sql} />
+                                <Image src={figma} />
                             </p>
                         </div>
                     }
@@ -94,15 +108,15 @@ function App() {
                                     <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent" />
                                     <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
                                 </p>
-
-                                <p className="icon_wrapper_phone">
-                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent" />
-                                </p>
-
-                                <p className="icon_wrapper_phone">
-                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
-                                </p>
                             </div>
+
+                            <p className="icon_wrapper_phone">
+                                <StatImagePhone src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent"  />
+                            </p>
+
+                            <p className="icon_wrapper_phone">
+                                <StatImagePhone src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                            </p>
                         </div>
                     }
                 />

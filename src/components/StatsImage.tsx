@@ -3,5 +3,5 @@ interface Prop {
 }
 
 export default function StatImage(props: Prop) {
-    return <img alt="image" src={props.src} className="icon" style={{height: "200px", width: "300px"}}/>;
+    return <img alt="image" src={props.src} className="icon" style={{height: "50%", width: "50%"}} />;
 }
