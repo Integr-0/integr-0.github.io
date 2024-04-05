@@ -9,13 +9,14 @@ import python from "./assets/python.png";
 import react from "./assets/react.png";
 import typescript from "./assets/typescript.png";
 import icon from "./assets/icon.png";
-import Card from "./components/CardComponent";
+import Card from "./components/Card";
 import MainBox from "./components/MainBox";
 import Box from "./components/Box";
 import LinkButton from "./components/LinkButton";
 import Image from "./components/Image";
 import TitleIcon from "./components/TitleIcon";
 import StatImage from "./components/StatsImage";
+import ImageCard from "./components/ImageCard";
 
 function App() {
     return (
@@ -26,13 +27,17 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="About me" icon="fa-solid fa-person"/>
+                            <TitleIcon
+                                text="About me"
+                                icon="fa-solid fa-person"
+                            />
 
                             <h5 className="card-title">
                                 <h4>Hi, im Erik!</h4>
                                 I'm a developer from <b>Austria</b> who likes to
                                 try out different stuff.
-                                <br />I mainly code in <b>Java</b> or <b>Kotlin</b> (I don't really do Front end)
+                                <br />I mainly code in <b>Java</b> or{" "}
+                                <b>Kotlin</b> (I don't really do Front end)
                             </h5>
                         </div>
                     }
@@ -41,15 +46,18 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Languages" icon="fa-solid fa-language"/>
+                            <TitleIcon
+                                text="Languages"
+                                icon="fa-solid fa-language"
+                            />
 
                             <p className="icon_wrapper_pc">
                                 <Image src={kotlin} />
-                                <Image src={css} />
-                                <Image src={csharp} />
-                                <Image src={html} />
                                 <Image src={java} />
+                                <Image src={csharp} />
                                 <Image src={python} />
+                                <Image src={css} />
+                                <Image src={html} />
                                 <Image src={react} />
                                 <Image src={typescript} />
                                 <Image src={javascript} />
@@ -57,14 +65,14 @@ function App() {
 
                             <p className="icon_wrapper_phone">
                                 <Image src={kotlin} />
-                                <Image src={css} />
-                                <Image src={csharp} />
-                                <Image src={html} />
                                 <Image src={java} />
+                                <Image src={csharp} />
+                                <Image src={python} />
+                                <Image src={css} />
                             </p>
 
                             <p className="icon_wrapper_phone">
-                                <Image src={python} />
+                                <Image src={html} />
                                 <Image src={react} />
                                 <Image src={typescript} />
                                 <Image src={javascript} />
@@ -76,11 +84,24 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Stats" icon="fa-solid fa-chart-pie"/>
-                            
+                            <TitleIcon
+                                text="Stats"
+                                icon="fa-solid fa-chart-pie"
+                            />
+
                             <div className="form-inline">
-                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent"/>
-                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                                <p className="icon_wrapper_pc">
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent" />
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                                </p>
+
+                                <p className="icon_wrapper_phone">
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent" />
+                                </p>
+
+                                <p className="icon_wrapper_phone">
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                                </p>
                             </div>
                         </div>
                     }
@@ -89,12 +110,16 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Some Projects" icon="fa-solid fa-code"/>
+                            <TitleIcon
+                                text="Some Projects"
+                                icon="fa-solid fa-code"
+                            />
 
-                            <Card
+                            <ImageCard
                                 title="ContentAutomation"
                                 bio="Automatically generates clips of a length of around 30 seconds. Perfect for platforms like TikTok and YouTube-shorts."
                                 link="https://github.com/Integr-0/ContentAutomation"
+                                img={icon}
                             />
 
                             <Card
@@ -121,7 +146,10 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Links" icon="fa-solid fa-link"/>
+                            <TitleIcon
+                                text="Links"
+                                icon="fa-solid fa-link"
+                            />
 
                             <LinkButton
                                 link="https://github.com/Integr-0"

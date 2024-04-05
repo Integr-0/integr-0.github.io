@@ -2,9 +2,10 @@ interface Prop {
     title: string;
     bio: string;
     link: string;
+    img: string
 }
 
-export default function card(prop: Prop) {
+export default function ImageCard(prop: Prop) {
     return (
         <div
             className="card"
@@ -16,6 +17,7 @@ export default function card(prop: Prop) {
                 borderRadius: "40px",
             }}
         >
+            <video src={prop.img} style={{width: "100%", height: "800px", borderTopLeftRadius: "40px", borderTopRightRadius: "40px"}}/>
             <div className="card-body">
                 <h5 className="card-title">{prop.title}</h5>
                 <p className="card-text">{prop.bio}</p>
