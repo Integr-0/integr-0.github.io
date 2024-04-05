@@ -23,9 +23,19 @@ import StatImage from "./components/StatsImage";
 import StatImagePhone from "./components/StatImagePhone";
 
 function App() {
-    return (
+        return (
         <>
             <div className="area_center">
+                <Box
+                    content={
+                        <div className="card-body">
+                            <img alt="image" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FIntegr%2Fmainpage.json&label=Visits&color=orange" className="icon" style={{height: "1%", width: "80px"}} /> 
+                        </div>
+                    }
+                />
+                
+                <br />
+
                 <MainBox icon={icon} />
 
                 <Box
