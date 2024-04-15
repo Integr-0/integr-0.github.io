@@ -92,6 +92,12 @@ function App() {
                             <TitleIcon text="Some Projects" icon="fa-solid fa-code"/>
 
                             <Card
+                                title="Helix"
+                                bio="Helix is a Minecraft mod adding various features to improobe your gameplay."
+                                link="https://github.com/Integr-0/Helix"
+                            />
+
+                            <Card
                                 title="ContentAutomation"
                                 bio="Automatically generates clips of a length of around 30 seconds. Perfect for platforms like TikTok and YouTube-shorts."
                                 link="https://github.com/Integr-0/ContentAutomation"
