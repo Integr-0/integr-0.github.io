@@ -1,5 +1,6 @@
 import "./App.css";
 import csharp from "./assets/csharp.png";
+import git from "./assets/git.png";
 import css from "./assets/css.png";
 import html from "./assets/html.png";
 import java from "./assets/java.png";
@@ -9,30 +10,48 @@ import python from "./assets/python.png";
 import react from "./assets/react.png";
 import typescript from "./assets/typescript.png";
 import icon from "./assets/icon.png";
-import Card from "./components/CardComponent";
+import sql from "./assets/mysql.svg";
+import figma from "./assets/figma.svg";
+
+import Card from "./components/Card";
 import MainBox from "./components/MainBox";
 import Box from "./components/Box";
 import LinkButton from "./components/LinkButton";
 import Image from "./components/Image";
 import TitleIcon from "./components/TitleIcon";
 import StatImage from "./components/StatsImage";
+import StatImagePhone from "./components/StatImagePhone";
 
 function App() {
-    return (
+        return (
         <>
             <div className="area_center">
+                <Box
+                    content={
+                        <div className="card-body">
+                            <img alt="image" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FIntegr%2Fmainpage.json&label=Visits&color=orange" className="icon" style={{height: "1%", width: "80px"}} /> 
+                        </div>
+                    }
+                />
+                
+                <br />
+
                 <MainBox icon={icon} />
 
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="About me" icon="fa-solid fa-person"/>
+                            <TitleIcon
+                                text="About me"
+                                icon="fa-solid fa-person"
+                            />
 
                             <h5 className="card-title">
                                 <h4>Hi, im Erik!</h4>
                                 I'm a developer from <b>Austria</b> who likes to
                                 try out different stuff.
-                                <br />I mainly code in <b>Java</b> or <b>Kotlin</b> (I don't really do Front end)
+                                <br />I mainly code in <b>Java</b> or{" "}
+                                <b>Kotlin</b> (I don't really do Front end)
                             </h5>
                         </div>
                     }
@@ -41,33 +60,46 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Languages" icon="fa-solid fa-language"/>
+                            <TitleIcon
+                                text="Languages"
+                                icon="fa-solid fa-language"
+                            />
 
                             <p className="icon_wrapper_pc">
                                 <Image src={kotlin} />
-                                <Image src={css} />
-                                <Image src={csharp} />
-                                <Image src={html} />
                                 <Image src={java} />
+                                <Image src={csharp} />
                                 <Image src={python} />
+                                <Image src={css} />
+                                <Image src={html} />
                                 <Image src={react} />
                                 <Image src={typescript} />
                                 <Image src={javascript} />
+                                <Image src={git} />
+                                <Image src={sql} />
+                                <Image src={figma} />
                             </p>
 
                             <p className="icon_wrapper_phone">
                                 <Image src={kotlin} />
-                                <Image src={css} />
-                                <Image src={csharp} />
-                                <Image src={html} />
                                 <Image src={java} />
+                                <Image src={csharp} />
+                                <Image src={python} />
+                                
                             </p>
 
                             <p className="icon_wrapper_phone">
-                                <Image src={python} />
+                                <Image src={css} />
+                                <Image src={html} />
                                 <Image src={react} />
                                 <Image src={typescript} />
+                            </p>
+
+                            <p className="icon_wrapper_phone">
                                 <Image src={javascript} />
+                                <Image src={git} />
+                                <Image src={sql} />
+                                <Image src={figma} />
                             </p>
                         </div>
                     }
@@ -76,12 +108,25 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Stats" icon="fa-solid fa-chart-pie"/>
-                            
+                            <TitleIcon
+                                text="Stats"
+                                icon="fa-solid fa-chart-pie"
+                            />
+
                             <div className="form-inline">
-                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent"/>
-                                <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                                <p className="icon_wrapper_pc">
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent" />
+                                    <StatImage src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                                </p>
                             </div>
+
+                            <p className="icon_wrapper_phone">
+                                <StatImagePhone src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Integr-0&theme=transparent"  />
+                            </p>
+
+                            <p className="icon_wrapper_phone">
+                                <StatImagePhone src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Integr-0&theme=transparent" />
+                            </p>
                         </div>
                     }
                 />
@@ -89,7 +134,10 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Some Projects" icon="fa-solid fa-code"/>
+                            <TitleIcon
+                                text="Some Projects"
+                                icon="fa-solid fa-code"
+                            />
 
                             <Card
                                 title="Helix"
@@ -127,7 +175,10 @@ function App() {
                 <Box
                     content={
                         <div className="card-body">
-                            <TitleIcon text="Links" icon="fa-solid fa-link"/>
+                            <TitleIcon
+                                text="Links"
+                                icon="fa-solid fa-link"
+                            />
 
                             <LinkButton
                                 link="https://github.com/Integr-0"
