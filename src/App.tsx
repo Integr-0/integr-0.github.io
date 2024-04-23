@@ -141,7 +141,7 @@ function App() {
 
                             <Card
                                 title="Helix"
-                                bio="Helix is a Minecraft mod adding various features to improobe your gameplay."
+                                bio="Helix is a Minecraft mod adding various features to improove your gameplay."
                                 link="https://github.com/Integr-0/Helix"
                             />
 
