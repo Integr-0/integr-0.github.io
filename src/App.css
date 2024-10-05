@@ -1,93 +1,30 @@
-.area_center {
-    margin-right: 20%;
-    margin-left: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-html {
-    height: 100%;
-    width: 100%;
-    background-image: url(./assets/background.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
-
-.title_center {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 50px;
-    text-align: center;
-    font-weight: bolder;
+.main_shadow {
+    text-shadow: 0 0 10px rgba(253, 133, 90, 0.89);
 }
 
 body {
-    margin: 5%;
-    background: none;
-    color: rgb(109, 90, 90); 
-    font-weight: 600;
-    text-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+    overflow-y: scroll;
+    position: relative;
+    min-height: 100vh;
 }
 
-.icon {
-    width: 50px; 
-    height: 50px;
-    display: block;
-    padding: 2px;
-    margin: auto;
+html {
+    scroll-behavior: smooth;
+    background: url('assets/img/point_pat.svg') repeat;
+    background-size: 30px;
 }
 
-.icon_wrapper_pc {
-    display: flex;
+.bg_old_dark {
+    background-color: oklch(22% 0.019 237.69 /1);
 }
 
-.icon_wrapper_phone {
-    display: none;
+.content-wrap {
+    padding-bottom: 186px;
 }
 
-@media only screen and (max-width: 1000px) {
-    .text_center {
-        margin: 5%;
-        text-align: start;
-    }
-
-    .area_center {
-        margin-right: 5%;
-        margin-left: 5%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
-
-    .title_center {
-        margin-right: 0%;
-        margin-left: 0%;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 50px;
-        text-align: center;
-        font-weight: bolder;
-    }
-
-    .icon_wrapper_phone {
-        display: flex;
-    }
-    
-    .icon_wrapper_pc {
-        display: none;
-    }
-
-    .icon_phone_width {
-        width: 30%;
-        height: 30%;
-    }
-}
-
-.img {
-    margin: auto;
-    border-radius: 100%;
-    height: 210px;
-    width: 210px;
-    display: block;
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 186px;
 }
