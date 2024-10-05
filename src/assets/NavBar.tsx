@@ -29,7 +29,7 @@ export default function NavBar(props: Props) {
                 </div>
                 <div className="navbar-center">
                 <label className="input input-bordered flex items-center gap-2 lg:w-96 sm:w-64">
-                        <input type="text" className="grow" id="search_bar" placeholder="Search" onKeyUp={() => props.searchCallback(document.getElementById("search_bar")!.value)}/>
+                        <input type="text" className="grow" id="search_bar" placeholder="Search" onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     </label>
                 </div>

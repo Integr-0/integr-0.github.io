@@ -5,9 +5,10 @@ import remarkGfm from "remark-gfm";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
 import {faReadme} from "@fortawesome/free-brands-svg-icons/faReadme";
+import {RepoType} from "../App.tsx";
 
 export interface Props {
-    repo: object
+    repo: RepoType
     visible: boolean
 }
 

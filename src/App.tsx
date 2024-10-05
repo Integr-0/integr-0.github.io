@@ -18,12 +18,23 @@ import mongoImg from "./assets/img/mongo.svg";
 import mysqlImg from "./assets/img/mysql.svg";
 import {faChevronDown, faLink} from "@fortawesome/free-solid-svg-icons";
 
+export interface RepoType {
+    name: string
+    description: string
+    id: string
+    owner: {
+        login: string
+    }
+    html_url: string
+
+}
+
 function App() {
     const [repos, setRepos] = useState([])
     const [search, setSearch] = useState("")
 
 
-    const shouldShow = (repo) => {
+    const shouldShow = (repo: RepoType) => {
         const hasName = (repo.name as string).toLowerCase().includes(search.toLowerCase())
         const hasDescription = (repo.description != null) ? (repo.description as string).toLowerCase().includes(search.toLowerCase()) : false
         return hasName || hasDescription
@@ -53,7 +64,7 @@ function App() {
             <FavouritesRenderer search={search}/>
 
             <div className="flex flex-col items-center bg-repeat point_back content-wrap" id="repos">
-                {repos.map((repo) => <RepoCard repo={repo} key={repo.id} visible={shouldShow(repo)}/>)}
+                {repos.map((repo: RepoType) => <RepoCard repo={repo} key={repo.id} visible={shouldShow(repo)}/>)}
             </div>
 
             <FooterRenderer/>
