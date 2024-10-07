@@ -42,7 +42,9 @@ function App() {
 
     const fetchRepos = async () => {
         const response = await fetch("https://api.github.com/users/Integr-0/repos")
-        setRepos(await response.json())
+        if (response.status == 200) {
+            setRepos(await response.json())
+        }
     }
 
     onload = async () => {
