@@ -17,42 +17,23 @@ import gitImg from "./assets/img/git.png";
 import mongoImg from "./assets/img/mongo.svg";
 import mysqlImg from "./assets/img/mysql.svg";
 import {faChevronDown, faLink} from "@fortawesome/free-solid-svg-icons";
+import {Repos} from "./assets/Data.tsx";
 
 export interface RepoType {
     name: string
     description: string
-    id: string
-    owner: {
-        login: string
-    }
     html_url: string
-
+    readme: string
 }
 
 function App() {
-    const [repos, setRepos] = useState([])
+    const repos = Repos
     const [search, setSearch] = useState("")
-
 
     const shouldShow = (repo: RepoType) => {
         const hasName = (repo.name as string).toLowerCase().includes(search.toLowerCase())
         const hasDescription = (repo.description != null) ? (repo.description as string).toLowerCase().includes(search.toLowerCase()) : false
         return hasName || hasDescription
-    }
-
-    const fetchRepos = async () => {
-        const response = await fetch("https://api.github.com/users/Integr-0/repos")
-        if (response.status == 200) {
-            setRepos(await response.json())
-        }
-    }
-
-    onload = async () => {
-        await fetchRepos()
-    }
-
-    onbeforeunload = () => {
-        //document.getElementById("navbar_anchor")!.scrollIntoView({behavior: "instant"});
     }
 
     return (
@@ -66,7 +47,7 @@ function App() {
             <FavouritesRenderer search={search}/>
 
             <div className="flex flex-col items-center bg-repeat point_back content-wrap" id="repos">
-                {repos.map((repo: RepoType) => <RepoCard repo={repo} key={repo.id} visible={shouldShow(repo)}/>)}
+                {repos.map((repo: RepoType, index: number) => <RepoCard repo={repo} key={index} visible={shouldShow(repo)}/>)}
             </div>
 
             <FooterRenderer/>

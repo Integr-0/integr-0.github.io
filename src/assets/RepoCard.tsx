@@ -1,4 +1,3 @@
-import {useEffect, useState} from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -6,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
 import {faReadme} from "@fortawesome/free-brands-svg-icons/faReadme";
 import {RepoType} from "../App.tsx";
+import {useEffect, useState} from "react";
 
 export interface Props {
     repo: RepoType
@@ -14,25 +14,16 @@ export interface Props {
 
 export default function RepoCard(props: Props) {
     const [markdown, setMarkdown] = useState("")
-    const [hasReadme, setHasReadme] = useState(false)
 
-    useEffect(() => {
-        fetchReadme()
-        console.log("Fetching readme for " + props.repo.name)
-    }, []);
-
-    const fetchReadme = async () => {
-        const readmeUrl = `https://raw.githubusercontent.com/${props.repo.owner.login}/${props.repo.name}/refs/heads/master/README.md`
-        const response = await fetch(readmeUrl)
-
-        if (response.status == 200) {
-            const data = await response.text()
-            setMarkdown(data)
-            setHasReadme(true)
-        }
+    const fetchMarkdown = async () => {
+        setMarkdown((await (await fetch(props.repo.readme)).text()));
     }
 
-    const MarkdownRenderer = () =>{
+    useEffect(() => {
+        fetchMarkdown().then(() => console.log("Fetched readme for " + props.repo.name));
+    }, [])
+
+    const MarkdownRenderer = () => {
         if (markdown != "") {
             return (
                 <div className="all-initial">
@@ -54,23 +45,18 @@ export default function RepoCard(props: Props) {
     }
 
     const ReadmeRenderer = () => {
-        if (hasReadme) {
-            return (
+        return (
 
 
             <div className="collapse collapse-arrow border-base-300 bg-base-200 border mt-3 hidden lg:grid">
                 <input type="checkbox"/>
-                <div className="collapse-title text-xl font-medium"><FontAwesomeIcon icon={faReadme}/> Show readme</div>
+                <div className="collapse-title text-xl font-medium"><FontAwesomeIcon icon={faReadme}/> Show readme
+                </div>
                 <div className="collapse-content">
                     <MarkdownRenderer/>
                 </div>
             </div>
         )
-        } else {
-            return (
-                <></>
-            )
-        }
     }
 
     if (props.visible) {
@@ -85,11 +71,14 @@ export default function RepoCard(props: Props) {
                                 <p>{props.repo.description}</p>
                             </div>
 
-                            <button className="btn btn-primary w-24 mt-3 lg:mt-0" onClick={() => window.location.href=props.repo.html_url}><FontAwesomeIcon icon={faLink}/>View</button>
+                            <button className="btn btn-primary w-24 mt-3 lg:mt-0"
+                                    onClick={() => window.location.href = props.repo.html_url}><FontAwesomeIcon
+                                icon={faLink}/>View
+                            </button>
 
                         </div>
 
-                        <ReadmeRenderer />
+                        <ReadmeRenderer/>
                     </div>
                 </div>
             </>

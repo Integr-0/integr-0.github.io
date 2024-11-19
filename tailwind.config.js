@@ -1,5 +1,8 @@
 
 /** @type {import('tailwindcss').Config} */
+import daisyUi from 'daisyui';
+import tailwindTypo from "@tailwindcss/typography";
+
 export default {
   content: [
     "./index.html",
@@ -12,8 +15,8 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require('daisyui'),
+    tailwindTypo,
+    daisyUi,
   ],
   daisyui: {
     themes: ["sunset"],
