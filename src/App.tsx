@@ -16,6 +16,7 @@ import reactImg from "./assets/img/react.png";
 import gitImg from "./assets/img/git.png";
 import mongoImg from "./assets/img/mongo.svg";
 import mysqlImg from "./assets/img/mysql.svg";
+import springImg from "./assets/img/spring.svg";
 import {faChevronDown, faLink} from "@fortawesome/free-solid-svg-icons";
 import {Repos} from "./assets/Data.tsx";
 
@@ -95,7 +96,7 @@ function HeroRenderer(props: Props) {
 function SkillsRenderer(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg_old_dark" id="skills">
+            <div className="hero min-h-[600px] bg-base-100" id="skills">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
                         <h1 className="text-5xl font-bold">Skills</h1>
@@ -118,13 +119,12 @@ function SkillsRenderer(props: Props) {
                                 <img src={htmlImg} className="w-10 m-2" alt="HTML"/>
                                 <img src={cssImg} className="w-10 m-2" alt="CSS"/>
                                 <img src={reactImg} className="w-10 m-2" alt="React"/>
-                                <img src={gitImg} className="w-10 m-2" alt="Git"/>
                                 <img src={mongoImg} className="w-10 m-2" alt="MongoDB"/>
                                 <img src={mysqlImg} className="w-10 m-2" alt="MySQL"/>
+                                <img src={springImg} className="w-10 m-2" alt="Spring"/>
+                                {/*<img src={gitImg} className="w-10 m-2" alt="Git"/>*/}
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@ function LibrariesRenderer(props: Props) {
 function GithubStatsRenderer(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg_old_dark" id="github_stats">
+            <div className="hero min-h-[600px] bg-base-100" id="github_stats">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
                         <h1 className="text-5xl font-bold">Github Stats</h1>
@@ -237,6 +237,11 @@ function FavouritesRenderer(props: Props) {
                         <button className="btn btn-link w-30 m-2"
                                 onClick={() => document.location.href = "https://daisyui.com/"}><FontAwesomeIcon
                             icon={faLink}/>DaisyUI
+                        </button>
+
+                        <button className="btn btn-link w-30 m-2"
+                                onClick={() => document.location.href = "https://spring.io/"}><FontAwesomeIcon
+                            icon={faLink}/>Spring
                         </button>
                     </div>
                 </div>

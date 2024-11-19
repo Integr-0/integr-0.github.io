@@ -1,12 +1,11 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faMagnifyingGlass, faPalette} from "@fortawesome/free-solid-svg-icons";
 
 export interface Props {
     searchCallback: (search: string) => void
 }
 
 export default function NavBar(props: Props) {
-
     return (
         <>
             <div className="navbar bg-base-100" id="navbar_anchor">
@@ -22,13 +21,59 @@ export default function NavBar(props: Props) {
                             <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()}>Libraries</a></li>
                             <li><a onClick={() => document.getElementById("github_stats")!.scrollIntoView()}>Github stats</a></li>
                             <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()}>Favourite tools</a></li>
-                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()}>Repositories</a>
+                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()}>Repositories</a></li>
+                            <li>
+                                <details open className="dropdown">
+                                    <summary>Theme</summary>
+                                    <ul>
+                                        <li>
+                                            <input
+                                                type="radio"
+                                                name="theme-dropdown"
+                                                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                                aria-label="Sunset"
+                                                value="sunset"/>
+                                        </li>
+                                        <li>
+                                            <input
+                                                type="radio"
+                                                name="theme-dropdown"
+                                                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                                aria-label="Cupcake"
+                                                value="cupcake"/>
+                                        </li>
+                                        <li>
+                                            <input
+                                                type="radio"
+                                                name="theme-dropdown"
+                                                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                                aria-label="Night"
+                                                value="night"/>
+                                        </li>
+                                        <li>
+                                            <input
+                                                type="radio"
+                                                name="theme-dropdown"
+                                                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                                aria-label="Dim"
+                                                value="dim"/>
+                                        </li>
+                                        <li>
+                                        <input
+                                                type="radio"
+                                                name="theme-dropdown"
+                                                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                                aria-label="Valentine"
+                                                value="valentine"/>
+                                        </li>
+                                    </ul>
+                                </details>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center">
-                <label className="input input-bordered flex items-center gap-2 lg:w-96 sm:w-64">
+                    <label className="input input-bordered flex items-center gap-2 lg:w-96 sm:w-64">
                         <input type="text" className="grow" id="search_bar" placeholder="Search" onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     </label>

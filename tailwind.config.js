@@ -12,14 +12,14 @@ export default {
     screens: {
       'sm': '480px',
       'lg': '1280px',
-    },
+    }
   },
   plugins: [
     tailwindTypo,
     daisyUi,
   ],
   daisyui: {
-    themes: ["sunset"],
+    themes: ["sunset", "cupcake", "night", "dim", "valentine"],
   },
 }
 

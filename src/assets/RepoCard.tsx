@@ -61,7 +61,7 @@ export default function RepoCard(props: Props) {
         return (
             <>
 
-                <div className="card bg-base-100 shadow-xl border-gray-700 border-2 m-6 w-[90vw] lg:w-9/12">
+                <div className="card bg-base-100 shadow-xl border-base-200 border-2 m-6 w-[90vw] lg:w-9/12">
                     <div className="card-body">
                         <div className="flex justify-between flex-col lg:flex-row">
                             <div>

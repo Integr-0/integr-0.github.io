@@ -1,5 +1,5 @@
 .main_shadow {
-    text-shadow: 0 0 10px rgba(253, 133, 90, 0.89);
+    text-shadow: 0 0 10px oklch(var(--p));
 }
 
 body {
@@ -12,6 +12,7 @@ html {
     scroll-behavior: smooth;
     background: url('assets/img/point_pat.svg') repeat;
     background-size: 30px;
+    background-blend-mode: exclusion;
 }
 
 .bg_old_dark {
