@@ -9,7 +9,7 @@ export const Repos = [
         name: "Castl3d-Backend",
         description: "Backend for the Castl3d chess app.",
         html_url: "https://github.com/Integr-0/Castl3d-Backend",
-        "readme": "assets/Castl3d-Backend.md"
+        readme: "assets/Castl3d-Backend.md"
     },
     {
         name: "Helix",
