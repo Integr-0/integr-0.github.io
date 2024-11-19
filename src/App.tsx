@@ -13,7 +13,7 @@ import typescriptImg from "./assets/img/typescript.png";
 import htmlImg from "./assets/img/html.png";
 import cssImg from "./assets/img/css.png";
 import reactImg from "./assets/img/react.png";
-import gitImg from "./assets/img/git.png";
+//import gitImg from "./assets/img/git.png";
 import mongoImg from "./assets/img/mongo.svg";
 import mysqlImg from "./assets/img/mysql.svg";
 import springImg from "./assets/img/spring.svg";

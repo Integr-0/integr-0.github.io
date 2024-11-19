@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faMagnifyingGlass, faPalette} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 export interface Props {
     searchCallback: (search: string) => void
