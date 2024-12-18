@@ -3,22 +3,22 @@
 ## Table of Contents
 <!-- TOC -->
 * [Content Automation](#content-automation)
-    * [Table of Contents](#table-of-contents)
-    * [About](#about)
-        * [Project](#project)
-        * [Me](#me)
-    * [Requirements](#requirements)
-        * [External](#external)
-        * [Python-Lib](#python-lib)
-    * [Getting started](#getting-started)
-        * [Setting up the virtual environment](#setting-up-the-virtual-environment)
-        * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
-        * [Downloading external content](#downloading-external-content)
-        * [Grabbing the finished product](#grabbing-the-finished-product)
-    * [Dependencies](#dependencies)
-        * [Kotlin](#kotlin)
-        * [Python](#python)
-        * [External](#external-1)
+  * [Table of Contents](#table-of-contents)
+  * [About](#about)
+    * [Project](#project)
+    * [Me](#me)
+  * [Requirements](#requirements)
+    * [External](#external)
+    * [Python-Lib](#python-lib)
+  * [Getting started](#getting-started)
+    * [Setting up the virtual environment](#setting-up-the-virtual-environment)
+    * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
+    * [Downloading external content](#downloading-external-content)
+    * [Grabbing the finished product](#grabbing-the-finished-product)
+  * [Dependencies](#dependencies)
+    * [Kotlin](#kotlin)
+    * [Python](#python)
+    * [External](#external-1)
 <!-- TOC -->
 
 ## About
@@ -37,7 +37,6 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ### External
 
-> [!NOTE]
 > There is an installation of FFMPEG via WinGet, although I couldn't get it to work.
 
 - [PYTHON 3.9](https://www.python.org/downloads/release/python-390/)
@@ -54,14 +53,12 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ### Setting up the virtual environment
 
-> [!CAUTION]
 > Python 3.9.0 is Required
 
 Create a new Python venv (or use your own Python) and get the path to the "python.exe" it uses. Add it in the .venvPath()
 
 ### Configuring the Runner and running it
 
-> [!CAUTION]
 > Make sure you have all tools installed, and u have the correct paths
 
 Clone this repo and open the Main.kt file and edit the execution.settings.

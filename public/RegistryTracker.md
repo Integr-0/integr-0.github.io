@@ -14,14 +14,7 @@ Also, automatically loads all entries on boot, so you can easily see all your en
 - [x] Implement editing
 - [x] Implement Installer
 
-### Images
-<img alt="img.png" height="70%" src="img.png" width="70%"/>
-<img alt="Entry Creator" height="70%" src="img_1.png" width="70%"/>
-<img alt="img_2.png" height="70%" src="img_2.png" width="70%"/>
-<img alt="img_3.png" height="70%" src="img_3.png" width="70%"/>
-
 ### Building yourself
-> [!CAUTION]
 > Only do this if you know what you are doing
 
 Clone the repository and navigate to the folder you cloned it into.

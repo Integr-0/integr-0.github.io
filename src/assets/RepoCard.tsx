@@ -4,11 +4,11 @@ import remarkGfm from "remark-gfm";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
 import {faReadme} from "@fortawesome/free-brands-svg-icons/faReadme";
-import {RepoType} from "../App.tsx";
+import {ProjectWrapper} from "../App.tsx";
 import {useEffect, useState} from "react";
 
 export interface Props {
-    repo: RepoType
+    repo: ProjectWrapper
     visible: boolean
 }
 
@@ -60,7 +60,6 @@ export default function RepoCard(props: Props) {
     if (props.visible) {
         return (
             <>
-
                 <div className="card bg-base-100 shadow-xl border-base-200 border-2 m-6 w-[90vw] lg:w-9/12">
                     <div className="card-body">
                         <div className="flex justify-between flex-col lg:flex-row">
@@ -70,7 +69,7 @@ export default function RepoCard(props: Props) {
                             </div>
 
                             <button className="btn btn-primary w-24 mt-3 lg:mt-0"
-                                    onClick={() => window.location.href = props.repo.html_url}><FontAwesomeIcon
+                                    onClick={() => window.open(props.repo.projectUrl, '_blank')!.focus()}><FontAwesomeIcon
                                 icon={faLink}/>View
                             </button>
 

@@ -3,27 +3,26 @@ import NavBar from "./assets/NavBar.tsx";
 import {useState} from "react";
 import RepoCard from "./assets/RepoCard.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCompass} from "@fortawesome/free-solid-svg-icons/faCompass";
-import kotlinImg from "./assets/img/kotlin.png";
-import csharpImg from "./assets/img/csharp.png";
-import javaImg from "./assets/img/java.png";
-import pythonImg from "./assets/img/python.png";
-import javascriptImg from "./assets/img/javascript.png";
-import typescriptImg from "./assets/img/typescript.png";
-import htmlImg from "./assets/img/html.png";
-import cssImg from "./assets/img/css.png";
-import reactImg from "./assets/img/react.png";
-//import gitImg from "./assets/img/git.png";
-import mongoImg from "./assets/img/mongo.svg";
-import mysqlImg from "./assets/img/mysql.svg";
-import springImg from "./assets/img/spring.svg";
-import {faChevronDown, faLink} from "@fortawesome/free-solid-svg-icons";
+import kotlinImg from "./assets/img/tool/kotlin.png";
+import csharpImg from "./assets/img/tool/csharp.png";
+import javaImg from "./assets/img/tool/java.png";
+import pythonImg from "./assets/img/tool/python.png";
+import javascriptImg from "./assets/img/tool/javascript.png";
+import typescriptImg from "./assets/img/tool/typescript.png";
+import htmlImg from "./assets/img/tool/html.png";
+import cssImg from "./assets/img/tool/css.png";
+import reactImg from "./assets/img/tool/react.png";
+import mongoImg from "./assets/img/tool/mongo.svg";
+import mysqlImg from "./assets/img/tool/mysql.svg";
+import springImg from "./assets/img/tool/spring.svg";
+import gitImg from "./assets/img/tool/git.png";
+import {faChevronDown, faLink, faCompass, faCheckCircle, faCircleQuestion} from "@fortawesome/free-solid-svg-icons";
 import {Repos} from "./assets/Data.tsx";
 
-export interface RepoType {
+export interface ProjectWrapper {
     name: string
     description: string
-    html_url: string
+    projectUrl: string
     readme: string
 }
 
@@ -31,7 +30,7 @@ function App() {
     const repos = Repos
     const [search, setSearch] = useState("")
 
-    const shouldShow = (repo: RepoType) => {
+    const shouldShow = (repo: ProjectWrapper) => {
         const hasName = (repo.name as string).toLowerCase().includes(search.toLowerCase())
         const hasDescription = (repo.description != null) ? (repo.description as string).toLowerCase().includes(search.toLowerCase()) : false
         return hasName || hasDescription
@@ -41,14 +40,17 @@ function App() {
         <>
             <NavBar searchCallback={setSearch}/>
 
-            <HeroRenderer search={search}/>
-            <SkillsRenderer search={search}/>
-            <LibrariesRenderer search={search}/>
-            <GithubStatsRenderer search={search}/>
-            <FavouritesRenderer search={search}/>
+            <HeroElement search={search}/>
+            <SkillsElement search={search}/>
+            <LibrariesElement search={search}/>
+            <Timeline search={search}/>
+            <FavouritesElement search={search}/>
 
             <div className="flex flex-col items-center bg-repeat point_back content-wrap" id="repos">
-                {repos.map((repo: RepoType, index: number) => <RepoCard repo={repo} key={index} visible={shouldShow(repo)}/>)}
+                <div className="mt-20 flex flex-col items-center w-[100%]">
+                    {repos.map((repo: ProjectWrapper, index: number) => <RepoCard repo={repo} key={index} visible={shouldShow(repo)}/>)}
+
+                </div>
             </div>
 
             <FooterRenderer/>
@@ -60,7 +62,7 @@ interface Props {
     search: string
 }
 
-function HeroRenderer(props: Props) {
+function HeroElement(props: Props) {
     if (props.search === "") {
         return (
             <>
@@ -71,8 +73,11 @@ function HeroRenderer(props: Props) {
                             <h1 className="text-5xl font-bold text-primary main_shadow">Integr</h1>
 
                             <p className="py-6">
-                                I'm a software developer who loves to create amazing things. I'm passionate about open
-                                source and love to contribute to the community. I'm also a huge fan of the Kotlin language.
+                                I'm a <strong className="text-primary">15</strong> year old software developer
+                                from <strong className="text-primary">Austria</strong>.
+                                I'm passionate about open
+                                source and love to contribute to it's community. I'm also a huge fan of the <strong
+                                className="text-primary">Kotlin</strong> language.
                             </p>
 
                             <button className="btn btn-primary" onClick={() => {
@@ -93,13 +98,14 @@ function HeroRenderer(props: Props) {
     } else return (<></>)
 }
 
-function SkillsRenderer(props: Props) {
+function SkillsElement(props: Props) {
     if (props.search === "") {
         return (
             <div className="hero min-h-[600px] bg-base-100" id="skills">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
                         <h1 className="text-5xl font-bold">Skills</h1>
+                        <span className="badge badge-primary">Hover</span>
 
                         <p className="py-6">
                             These are the skills that I have acquired over the years. I'm always learning new things and
@@ -108,21 +114,22 @@ function SkillsRenderer(props: Props) {
                             frontend development.
                         </p>
 
-                        <div className="flex justify-center">
-                            <div className="grid grid-cols-5 lg:grid-cols-12">
-                                <img src={kotlinImg} className="w-10 m-2" alt="Kotlin"/>
-                                <img src={javaImg} className="w-10 m-2" alt="Java"/>
-                                <img src={csharpImg} className="w-10 m-2" alt="C#"/>
-                                <img src={pythonImg} className="w-10 m-2" alt="Python"/>
-                                <img src={javascriptImg} className="w-10 m-2" alt="JavaScript"/>
-                                <img src={typescriptImg} className="w-10 m-2" alt="TypeScript"/>
-                                <img src={htmlImg} className="w-10 m-2" alt="HTML"/>
-                                <img src={cssImg} className="w-10 m-2" alt="CSS"/>
-                                <img src={reactImg} className="w-10 m-2" alt="React"/>
-                                <img src={mongoImg} className="w-10 m-2" alt="MongoDB"/>
-                                <img src={mysqlImg} className="w-10 m-2" alt="MySQL"/>
-                                <img src={springImg} className="w-10 m-2" alt="Spring"/>
-                                {/*<img src={gitImg} className="w-10 m-2" alt="Git"/>*/}
+
+                        <div className="flex justify-center flex-col">
+                            <div>
+                                <ToolImage img={kotlinImg} alt={"Kotlin"}/>
+                                <ToolImage img={javaImg} alt={"Java"}/>
+                                <ToolImage img={csharpImg} alt={"C#"}/>
+                                <ToolImage img={pythonImg} alt={"Python"}/>
+                                <ToolImage img={javascriptImg} alt={"JavaScript"}/>
+                                <ToolImage img={typescriptImg} alt={"TypeScript"}/>
+                                <ToolImage img={htmlImg} alt={"HTML"}/>
+                                <ToolImage img={cssImg} alt={"CSS"}/>
+                                <ToolImage img={reactImg} alt={"React"}/>
+                                <ToolImage img={mongoImg} alt={"MongoDB"}/>
+                                <ToolImage img={mysqlImg} alt={"MySQL"}/>
+                                <ToolImage img={springImg} alt={"Spring"}/>
+                                <ToolImage img={gitImg} alt={"Git"}/>
                             </div>
                         </div>
                     </div>
@@ -132,7 +139,16 @@ function SkillsRenderer(props: Props) {
     } else return (<></>)
 }
 
-function LibrariesRenderer(props: Props) {
+function ToolImage(props: { img: string, alt: string }) {
+    return (
+        <div className="tooltip tooltip-bottom hover:scale-110 hover:bg-base-200 rounded-xl hover:z-20"
+             data-tip={props.alt}>
+            <img src={props.img} className="w-10 m-2" alt={props.alt}/>
+        </div>
+    )
+}
+
+function LibrariesElement(props: Props) {
     if (props.search === "") {
         return (
             <div className="hero min-h-[600px] bg-base-200" id="libraries">
@@ -168,26 +184,78 @@ function LibrariesRenderer(props: Props) {
     } else return (<></>)
 }
 
-function GithubStatsRenderer(props: Props) {
+function Timeline(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg-base-100" id="github_stats">
+            <div className="hero min-h-[600px] bg-base-100" id="timeline">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold">Github Stats</h1>
+                        <h1 className="text-5xl font-bold mb-10 mt-10">Timeline</h1>
 
-                        <p className="py-6">
-                            These are my Github stats. I have been using Github for a long time and I love it. I have
-                            contributed to many projects and have created many repositories. I'm always looking for new
-                            projects to contribute to.
-                        </p>
+                        <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+                            <li>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
 
-                        <div className="flex justify-center">
-                            <img
-                                src="https://github-readme-stats.vercel.app/api?username=Integr-0&show_icons=true&theme=darcula"
-                                alt="Github Stats"/>
+                                <div className="timeline-start mb-10 md:text-end">
+                                    <time className="font-mono">2019</time>
+                                    <div className="text-lg font-black">Humble Beginnings</div>
+                                    In 2019, I started my journey as a software developer. I was fascinated by technology
+                                    and wanted to learn more about it. I started with python in the context of embedded programming on
+                                    a Raspberry Pi. I quickly fell in love with programming and started my journey.
+                                </div>
+                                <hr className="bg-primary"/>
+                            </li>
+                            <li>
+                                <hr className="bg-primary"/>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
 
-                        </div>
+                                <div className="timeline-end mb-10">
+                                    <time className="font-mono">2020</time>
+                                    <div className="text-lg font-black">Advance to Arduino</div>
+                                    In 2020, I started learning Arduino development. I was fascinated by the possibilities
+                                    that Arduino offered and started creating projects with it. Although i have not used it for quite
+                                    some time now, I still sometimes find myself coming back to it.
+                                </div>
+                                <hr className="bg-primary"/>
+                            </li>
+                            <li>
+                                <hr className="bg-primary"/>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+
+                                <div className="timeline-start mb-10 md:text-end">
+                                    <time className="font-mono">2021</time>
+                                    <div className="text-lg font-black">Java</div>
+                                    In 2021, I started learning Java development. Although it was a bit challenging at first, I
+                                    quickly got the hang of it and started creating projects with it. I have been using Java
+                                    ever since and have made many projects that I am proud of.
+                                </div>
+                                <hr className="bg-primary"/>
+                            </li>
+                            <li>
+                                <hr className="bg-primary"/>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+
+                                <div className="timeline-end mb-10">
+                                    <time className="font-mono">2023</time>
+                                    <div className="text-lg font-black">Kotlin</div>
+                                    In 2024, I first discovered Kotlin and fell in love with it. I have been using it ever since
+                                    and have been contributing to its community. I have created libraries and tools for Kotlin and
+                                    have been using it in my projects.
+                                </div>
+                                <hr />
+                            </li>
+                            <li>
+                                <hr />
+                                <FontAwesomeIcon icon={faCircleQuestion} className="timeline-middle"></FontAwesomeIcon>
+
+                                <div className="timeline-start mb-10 md:text-end">
+                                    <time className="font-mono">...</time>
+                                    <div className="text-lg font-black">Next up</div>
+                                    Who knows what the future holds? I'm excited to see what the next big thing will be. I'm
+                                    looking forward to new technologies and innovations that will shape our world.
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -195,7 +263,7 @@ function GithubStatsRenderer(props: Props) {
     } else return (<></>)
 }
 
-function FavouritesRenderer(props: Props) {
+function FavouritesElement(props: Props) {
     if (props.search === "") {
         return (
             <div className="hero min-h-[600px] bg-base-200" id="favourites">

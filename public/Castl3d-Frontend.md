@@ -20,7 +20,7 @@ This project is a chess game frontend implemented using TypeScript and React. It
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/chess-game.git
+    git clone https://github.com/Integr-0/chess-game.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -43,10 +43,6 @@ This project is a chess game frontend implemented using TypeScript and React. It
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Using the board in your project
 
