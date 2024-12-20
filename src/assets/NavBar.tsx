@@ -39,7 +39,7 @@ export default function NavBar(props: Props) {
 
     return (
         <>
-            <div className="navbar bg-base-100 fixed z-10" id="navbar_anchor">
+            <div className="navbar bg-base-100 fixed z-10 border-b-2 border-b-base-300" id="navbar_anchor">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -48,11 +48,11 @@ export default function NavBar(props: Props) {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()}>Skills</a></li>
-                            <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()}>Libraries</a></li>
-                            <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()}>Timeline</a></li>
-                            <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()}>Favourite tools</a></li>
-                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()}>Repositories</a></li>
+                            <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Skills</a></li>
+                            <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Libraries</a></li>
+                            <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Timeline</a></li>
+                            <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Favourite tools</a></li>
+                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Repositories</a></li>
                         </ul>
                     </div>
 

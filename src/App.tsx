@@ -70,7 +70,8 @@ function HeroElement(props: Props) {
                     <div className="hero-content text-center">
                         <div className="max-w-md">
                             <h1 className="text-5xl font-bold">Hey there, i'm</h1>
-                            <h1 className="text-5xl font-bold text-primary main_shadow">Integr</h1>
+                            <h1 className="text-5xl font-bold main-shadow">Integr</h1>
+                            <h1 className="text-5xl font-bold main-shadow-before">Integr</h1>
 
                             <p className="py-6">
                                 I'm a <strong className="text-primary">15</strong> year old software developer
@@ -190,7 +191,7 @@ function Timeline(props: Props) {
             <div className="hero min-h-[600px] bg-base-100" id="timeline">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold mb-10 mt-10">Timeline</h1>
+                        <h1 className="text-5xl font-bold mb-10 mt-32">Timeline</h1>
 
                         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                             <li>

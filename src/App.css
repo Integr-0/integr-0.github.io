@@ -1,5 +1,58 @@
-.main_shadow {
-    text-shadow: 0 0 10px oklch(var(--p));
+.main-shadow {
+    height: 55px;
+    --bg-size: 200%;
+    --color-one: oklch(var(--p));
+    --color-two: oklch(var(--s));
+    background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one),
+            var(--color-two),
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+}
+
+.main-shadow-before {
+    height: 55px;
+    --bg-size: 200%;
+    --color-one: oklch(var(--p));
+    --color-two: oklch(var(--s));
+    background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one),
+            var(--color-two),
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+    margin-top: -55px;
+    filter: blur(10px);
+    user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .main-shadow {
+        animation: move-bg 4s linear infinite;
+    }
+    .main-shadow-before {
+        animation: move-bg 4s linear infinite;
+    }
+    @keyframes move-bg {
+        to {
+            background-position: var(--bg-size) 0;
+        }
+    }
 }
 
 body {
@@ -13,10 +66,6 @@ html {
     background: url('assets/img/point_pat.svg') repeat;
     background-size: 30px;
     background-blend-mode: exclusion;
-}
-
-.bg_old_dark {
-    background-color: oklch(22% 0.019 237.69 /1);
 }
 
 .content-wrap {
