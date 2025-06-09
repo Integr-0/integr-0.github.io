@@ -16,8 +16,18 @@ import mongoImg from "./assets/img/tool/mongo.svg";
 import mysqlImg from "./assets/img/tool/mysql.svg";
 import springImg from "./assets/img/tool/spring.svg";
 import gitImg from "./assets/img/tool/git.png";
-import {faChevronDown, faLink, faCompass, faCheckCircle, faCircleQuestion} from "@fortawesome/free-solid-svg-icons";
+import vueImg from "./assets/img/tool/vue.png";
+import {
+    faChevronDown,
+    faCompass,
+    faCheckCircle,
+    faCircleQuestion,
+    faUpRightFromSquare, faCode, faBook, faClock,
+    faBoxesStacked, faFire
+} from "@fortawesome/free-solid-svg-icons";
 import {Repos} from "./assets/Data.tsx";
+import HeroMainText from "./assets/HeroMainText.tsx";
+import Section from "./assets/Section.tsx";
 
 export interface ProjectWrapper {
     name: string
@@ -49,7 +59,6 @@ function App() {
             <div className="flex flex-col items-center bg-repeat point_back content-wrap" id="repos">
                 <div className="mt-20 flex flex-col items-center w-[100%]">
                     {repos.map((repo: ProjectWrapper, index: number) => <RepoCard repo={repo} key={index} visible={shouldShow(repo)}/>)}
-
                 </div>
             </div>
 
@@ -68,13 +77,18 @@ function HeroElement(props: Props) {
             <>
                 <div className="hero bg-base-200 min-h-screen">
                     <div className="hero-content text-center">
-                        <div className="max-w-md">
-                            <h1 className="text-5xl font-bold">Hey there, i'm</h1>
-                            <h1 className="text-5xl font-bold main-shadow">Integr</h1>
-                            <h1 className="text-5xl font-bold main-shadow-before">Integr</h1>
+                        <div className="max-w-md flex flex-col items-center justify-center">
+                            <div className="mb-10 avatar online">
+                                <div className="w-20 rounded-full">
+                                    <img src="https://avatars.githubusercontent.com/u/74710895" alt="Profile Picture" className="rounded-full w-20"/>
+                                </div>
+                            </div>
 
+                            <h1 className="text-5xl font-bold"><FontAwesomeIcon icon={faFire} className="mr-2" size="xs"/>Hey there, i'm</h1>
+
+                            <HeroMainText />
                             <p className="py-6">
-                                I'm a <strong className="text-primary">15</strong> year old software developer
+                                I'm a <strong className="text-primary">{renderAge()}</strong> year old software developer
                                 from <strong className="text-primary">Austria</strong>.
                                 I'm passionate about open
                                 source and love to contribute to it's community. I'm also a huge fan of the <strong
@@ -90,7 +104,7 @@ function HeroElement(props: Props) {
                     </div>
 
                     <div className="flex flex-col h-screen justify-end">
-                        <FontAwesomeIcon icon={faChevronDown} bounce className="mb-32"/>
+                        <FontAwesomeIcon icon={faChevronDown} bounce className="mb-10"/>
                     </div>
                 </div>
             </>
@@ -99,13 +113,25 @@ function HeroElement(props: Props) {
     } else return (<></>)
 }
 
+function renderAge() {
+    // Calculate age from 27.5.2009
+    const birthday = new Date(2009, 4, 27);
+    const today = new Date();
+    let age = today.getFullYear() - birthday.getFullYear();
+    const m = today.getMonth() - birthday.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+        age--;
+    }
+    return <strong className="text-primary">{age}</strong>;
+}
+
 function SkillsElement(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg-base-100" id="skills">
-                <div className="hero-content text-center">
+            <div className="hero min-h-[600px] bg-base-100">
+                <Section className="hero-content text-center" id="skills">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold">Skills</h1>
+                        <h1 className="text-5xl font-bold"><FontAwesomeIcon icon={faCode} className="mr-2" size="xs"/>Skills</h1>
                         <span className="badge badge-primary">Hover</span>
 
                         <p className="py-6">
@@ -131,10 +157,11 @@ function SkillsElement(props: Props) {
                                 <ToolImage img={mysqlImg} alt={"MySQL"}/>
                                 <ToolImage img={springImg} alt={"Spring"}/>
                                 <ToolImage img={gitImg} alt={"Git"}/>
+                                <ToolImage img={vueImg} alt={"Vue"}/>
                             </div>
                         </div>
                     </div>
-                </div>
+                </Section>
             </div>
         )
     } else return (<></>)
@@ -152,10 +179,10 @@ function ToolImage(props: { img: string, alt: string }) {
 function LibrariesElement(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg-base-200" id="libraries">
-                <div className="hero-content text-center">
+            <div className="hero min-h-[600px] bg-base-200">
+                <Section className="hero-content text-center" id="libraries">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold">Libraries</h1>
+                        <h1 className="text-5xl font-bold"><FontAwesomeIcon icon={faBook} className="mr-2" size="xs"/>Libraries</h1>
 
                         <p className="py-6">
                             I publish libraries on Maven (Sonatype) that I use in my projects. These libraries are open
@@ -167,19 +194,19 @@ function LibrariesElement(props: Props) {
 
                         <div className="flex justify-center">
                             <button className="btn btn-primary w-28 m-2"
-                                    onClick={() => window.location.href = "https://central.sonatype.com/namespace/io.github.integr-0"}>
-                                <FontAwesomeIcon icon={faLink}/>Maven
+                                    onClick={() => window.open("https://central.sonatype.com/namespace/io.github.integr-0", "_blank")}>
+                                <FontAwesomeIcon icon={faUpRightFromSquare}/>Maven
                             </button>
                             <button className="btn btn-info w-28 m-2"
-                                    onClick={() => window.location.href = "https://github.com/Integr-0"}>
-                                <FontAwesomeIcon icon={faLink}/>Github
+                                    onClick={() => window.open("https://github.com/Integr-0", "_blank")}>
+                                <FontAwesomeIcon icon={faUpRightFromSquare}/>Github
                             </button>
 
                         </div>
 
 
                     </div>
-                </div>
+                </Section>
             </div>
         )
     } else return (<></>)
@@ -188,10 +215,10 @@ function LibrariesElement(props: Props) {
 function Timeline(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg-base-100" id="timeline">
-                <div className="hero-content text-center">
+            <div className="hero min-h-[600px] bg-base-100">
+                <Section className="hero-content text-center" id="timeline">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold mb-10 mt-32">Timeline</h1>
+                        <h1 className="text-5xl font-bold mb-10 mt-32"><FontAwesomeIcon icon={faClock} className="mr-2" size="xs"/>Timeline</h1>
 
                         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                             <li>
@@ -199,7 +226,7 @@ function Timeline(props: Props) {
 
                                 <div className="timeline-start mb-10 md:text-end">
                                     <time className="font-mono">2019</time>
-                                    <div className="text-lg font-black">Humble Beginnings</div>
+                                    <div className="text-lg font-black">Beginnings</div>
                                     In 2019, I started my journey as a software developer. I was fascinated by technology
                                     and wanted to learn more about it. I started with python in the context of embedded programming on
                                     a Raspberry Pi. I quickly fell in love with programming and started my journey.
@@ -211,11 +238,11 @@ function Timeline(props: Props) {
                                 <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
 
                                 <div className="timeline-end mb-10">
-                                    <time className="font-mono">2020</time>
-                                    <div className="text-lg font-black">Advance to Arduino</div>
-                                    In 2020, I started learning Arduino development. I was fascinated by the possibilities
-                                    that Arduino offered and started creating projects with it. Although i have not used it for quite
-                                    some time now, I still sometimes find myself coming back to it.
+                                    <time className="font-mono">2021</time>
+                                    <div className="text-lg font-black">Java</div>
+                                    In 2021, I started learning Java development. Although it was a bit challenging at first, I
+                                    quickly got the hang of it and started creating projects with it. I have been using Java
+                                    ever since and have developed many projects that I am proud of.
                                 </div>
                                 <hr className="bg-primary"/>
                             </li>
@@ -223,12 +250,12 @@ function Timeline(props: Props) {
                                 <hr className="bg-primary"/>
                                 <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
 
-                                <div className="timeline-start mb-10 md:text-end">
-                                    <time className="font-mono">2021</time>
-                                    <div className="text-lg font-black">Java</div>
-                                    In 2021, I started learning Java development. Although it was a bit challenging at first, I
-                                    quickly got the hang of it and started creating projects with it. I have been using Java
-                                    ever since and have made many projects that I am proud of.
+                                <div className="timeline-start mb-10">
+                                    <time className="font-mono">2023</time>
+                                    <div className="text-lg font-black">Kotlin</div>
+                                    In 2023, I first discovered Kotlin and fell in love with it. I have been using it ever since
+                                    and have been contributing to its community. I have created libraries and tools for Kotlin and
+                                    have been using it in my projects.
                                 </div>
                                 <hr className="bg-primary"/>
                             </li>
@@ -237,11 +264,11 @@ function Timeline(props: Props) {
                                 <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
 
                                 <div className="timeline-end mb-10">
-                                    <time className="font-mono">2023</time>
-                                    <div className="text-lg font-black">Kotlin</div>
-                                    In 2024, I first discovered Kotlin and fell in love with it. I have been using it ever since
-                                    and have been contributing to its community. I have created libraries and tools for Kotlin and
-                                    have been using it in my projects.
+                                    <time className="font-mono">2024</time>
+                                    <div className="text-lg font-black">Spring & Vue</div>
+                                    In 2024, I started learning Spring and Vue. I was amazed by the power of these frameworks and
+                                    how they can be used to create powerful applications. I have been using them ever since and
+                                    I am still enjoying their use.
                                 </div>
                                 <hr />
                             </li>
@@ -258,7 +285,7 @@ function Timeline(props: Props) {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </Section>
             </div>
         )
     } else return (<></>)
@@ -267,53 +294,48 @@ function Timeline(props: Props) {
 function FavouritesElement(props: Props) {
     if (props.search === "") {
         return (
-            <div className="hero min-h-[600px] bg-base-200" id="favourites">
-                <div className="hero-content text-center">
+            <div className="hero min-h-[600px] bg-base-200">
+                <Section className="hero-content text-center" id="favourites">
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl font-bold">Favourite Tools</h1>
+                        <h1 className="text-5xl font-bold"><FontAwesomeIcon icon={faBoxesStacked} className="mr-2" size="xs"/>Favourite Stack</h1>
 
                         <p className="py-6">
-                            Here are some of my favourite tools and frameworks that I use in my projects.
-                            I can only recommend them to you. They are all free or worth the price (in my opinion).
+                            Below you can find my favourite tech stack that I use in my projects.
+                            I can only recommend the tools shown to you. They are all free or worth the price (in my opinion).
                             Many of them are open source and have a large community.
                         </p>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://kotlinlang.org/"}><FontAwesomeIcon
-                            icon={faLink}/>Kotlin
+                                onClick={() => window.open("https://kotlinlang.org/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>Kotlin
                         </button>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://ktor.io/"}><FontAwesomeIcon
-                            icon={faLink}/>Ktor
+                                onClick={() => window.open("https://gradle.org/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>Gradle
                         </button>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://gradle.org/"}><FontAwesomeIcon
-                            icon={faLink}/>Gradle
+                                onClick={() => window.open("https://vuejs.org/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>Vue
                         </button>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://react.dev/"}><FontAwesomeIcon
-                            icon={faLink}/>React
+                                onClick={() => window.open("https://daisyui.com/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>DaisyUI
                         </button>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://vite.dev/"}><FontAwesomeIcon
-                            icon={faLink}/>Vite
+                                onClick={() => window.open("https://spring.io/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>Spring
                         </button>
 
                         <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://daisyui.com/"}><FontAwesomeIcon
-                            icon={faLink}/>DaisyUI
-                        </button>
-
-                        <button className="btn btn-link w-30 m-2"
-                                onClick={() => document.location.href = "https://spring.io/"}><FontAwesomeIcon
-                            icon={faLink}/>Spring
+                                onClick={() => window.open("https://www.mongodb.com/", "_blank")}>
+                            <FontAwesomeIcon icon={faUpRightFromSquare}/>Mongo
                         </button>
                     </div>
-                </div>
+                </Section>
             </div>
         )
     } else return (<></>)

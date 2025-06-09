@@ -2,10 +2,10 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLink} from "@fortawesome/free-solid-svg-icons";
-import {faReadme} from "@fortawesome/free-brands-svg-icons/faReadme";
+import {faBook, faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 import {ProjectWrapper} from "../App.tsx";
 import {useEffect, useState} from "react";
+import Section from "./Section.tsx";
 
 export interface Props {
     repo: ProjectWrapper
@@ -48,7 +48,7 @@ export default function RepoCard(props: Props) {
         return (
             <div className="collapse collapse-arrow border-base-300 bg-base-200 border mt-3 hidden lg:grid">
                 <input type="checkbox"/>
-                <div className="collapse-title text-xl font-medium"><FontAwesomeIcon icon={faReadme}/> Show readme
+                <div className="collapse-title text-xl font-medium"><FontAwesomeIcon icon={faBook} className="mr-2"/> Show Readme
                 </div>
                 <div className="collapse-content">
                     <MarkdownRenderer/>
@@ -60,7 +60,7 @@ export default function RepoCard(props: Props) {
     if (props.visible) {
         return (
             <>
-                <div className="card bg-base-100 shadow-xl border-base-200 border-2 m-6 w-[90vw] lg:w-9/12">
+                <Section className="card bg-base-100 shadow-xl border-base-200 border-2 m-6 w-[90vw] lg:w-9/12" id={props.repo.name}>
                     <div className="card-body">
                         <div className="flex justify-between flex-col lg:flex-row">
                             <div>
@@ -70,14 +70,14 @@ export default function RepoCard(props: Props) {
 
                             <button className="btn btn-primary w-24 mt-3 lg:mt-0"
                                     onClick={() => window.open(props.repo.projectUrl, '_blank')!.focus()}><FontAwesomeIcon
-                                icon={faLink}/>View
+                                icon={faUpRightFromSquare}/>View
                             </button>
 
                         </div>
 
                         <ReadmeRenderer/>
                     </div>
-                </div>
+                </Section>
             </>
         )
     } else return <></>

@@ -1,5 +1,12 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faMagnifyingGlass, faPalette} from "@fortawesome/free-solid-svg-icons";
+import {
+    faBars,
+    faBook, faBoxesStacked, faClock,
+    faCode, faFolder,
+    faMagnifyingGlass,
+    faPalette
+} from "@fortawesome/free-solid-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 export interface Props {
     searchCallback: (search: string) => void
@@ -48,11 +55,11 @@ export default function NavBar(props: Props) {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Skills</a></li>
-                            <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Libraries</a></li>
-                            <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Timeline</a></li>
-                            <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Favourite tools</a></li>
-                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start">Repositories</a></li>
+                            <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faCode}/>Skills</a></li>
+                            <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBook}/>Libraries</a></li>
+                            <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faClock}/>Timeline</a></li>
+                            <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBoxesStacked}/>Favourite Stack</a></li>
+                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faFolder}/>Repositories</a></li>
                         </ul>
                     </div>
 
@@ -110,23 +117,19 @@ export default function NavBar(props: Props) {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <label className="input input-bordered hidden items-center gap-2 lg:w-96 sm:w-64 sm:flex">
+                    <label className="cursor-text input input-bordered hidden items-center gap-2 lg:w-96 lg:flex">
+                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
                         <input type="text" className="grow" id="search_bar" placeholder="Search"
                                onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
-                        <kbd className="kbd kbd-sm">ctrl</kbd>
-                        <kbd className="kbd kbd-sm">k</kbd>
-                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                        <kbd className="kbd kbd-sm select-none cursor-text">ctrl</kbd>
+                        <kbd className="kbd kbd-sm select-none cursor-text">k</kbd>
                     </label>
                 </div>
 
                 <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle"
                             onClick={() => window.open("https://github.com/Integr-0", '_blank')!.focus()}>
-                        <div className="avatar online">
-                            <div className="w-7 rounded-full">
-                                <img src="https://avatars.githubusercontent.com/u/74710895" alt="Integr's Github"/>
-                            </div>
-                        </div>
+                        <FontAwesomeIcon icon={faGithub} size="xl"/>
                     </button>
                 </div>
             </div>

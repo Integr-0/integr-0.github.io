@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght,ROND@900,100&display=swap');
+
 .main-shadow {
     height: 55px;
     --bg-size: 200%;
@@ -9,13 +12,13 @@
             var(--color-two),
             var(--color-one),
             var(--color-two),
-            var(--color-one),
-            var(--color-two),
             var(--color-one)
     )
     0 0 / var(--bg-size) 100%;
     color: transparent;
     background-clip: text;
+    font-family: 'Doto', sans-serif;
+    letter-spacing: -1px;
 }
 
 .main-shadow-before {
@@ -29,8 +32,6 @@
             var(--color-two),
             var(--color-one),
             var(--color-two),
-            var(--color-one),
-            var(--color-two),
             var(--color-one)
     )
     0 0 / var(--bg-size) 100%;
@@ -39,6 +40,8 @@
     margin-top: -55px;
     filter: blur(10px);
     user-select: none;
+    font-family: 'Doto', sans-serif;
+    letter-spacing: -1px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -66,6 +69,7 @@ html {
     background: url('assets/img/point_pat.svg') repeat;
     background-size: 30px;
     background-blend-mode: exclusion;
+    font-family: "Roboto", sans-serif !important;
 }
 
 .content-wrap {
@@ -78,3 +82,57 @@ footer {
     width: 100%;
     height: 186px;
 }
+
+.flip-container {
+    perspective: 1000px;
+    display: inline-block;
+    position: relative;
+    width: 320px;
+    height: 70px;
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-front {
+    z-index: 2;
+    background: transparent;
+    transform: rotateX(0deg) scale(1) rotateY(0deg) skewY(0deg);
+}
+
+.flip-back {
+    z-index: 1;
+    background: transparent;
+    transform: rotateX(180deg) scale(0.5) rotateY(50deg) skewY(-50deg);
+}
+
+.flip-container.flipped .flip-front {
+    transform: rotateX(180deg) scale(0.5) rotateY(50deg) skewY(-50deg);
+}
+
+.flip-container.flipped .flip-back {
+    transform: rotateX(0deg) scale(1) rotateY(0deg) skewY(0deg);
+}
+
+.section {
+    opacity: 0;
+    scale: 0.85;
+    transition: opacity 0.4s ease, scale 0.4s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+.section.visible {
+    opacity: 1;
+    scale: 1;
+}
+
