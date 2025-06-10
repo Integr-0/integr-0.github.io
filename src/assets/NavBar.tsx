@@ -1,4 +1,5 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBars,
     faBook, faBoxesStacked, faClock,
@@ -6,13 +7,15 @@ import {
     faMagnifyingGlass,
     faPalette
 } from "@fortawesome/free-solid-svg-icons";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export interface Props {
     searchCallback: (search: string) => void
 }
 
 export default function NavBar(props: Props) {
+    const [searchFocused, setSearchFocused] = useState(false);
+
     const onThemeChange = () => {
         const theme = (document.querySelector('input[name="theme-dropdown"]:checked')! as HTMLInputElement).value;
         localStorage.setItem('theme', JSON.stringify(theme));
@@ -43,11 +46,10 @@ export default function NavBar(props: Props) {
         }
     }
 
-
     return (
         <>
             <div>
-                <div className="navbar bg-base-100 fixed z-10 border-b-2 border-b-base-300 h-14" id="navbar_anchor">
+                <div className="navbar bg-base-100 fixed z-10 border-b-2 border-b-base-300 h-[4.5rem]" id="navbar_anchor">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -118,10 +120,19 @@ export default function NavBar(props: Props) {
                         </div>
                     </div>
                     <div className="navbar-center">
-                        <label className="cursor-text input input-bordered hidden items-center gap-2 lg:w-96 lg:flex">
+                        <label
+                            className={`cursor-text input input-bordered hidden items-center gap-2 lg:w-96 lg:flex${searchFocused ? " input-primary" : ""}`}
+                        >
                             <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                            <input type="text" className="grow" id="search_bar" placeholder="Search"
-                                   onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
+                            <input
+                                type="text"
+                                className="grow"
+                                id="search_bar"
+                                placeholder="Search"
+                                onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}
+                                onFocus={() => setSearchFocused(true)}
+                                onBlur={() => setSearchFocused(false)}
+                            />
                             <kbd className="kbd kbd-sm select-none cursor-text">ctrl</kbd>
                             <kbd className="kbd kbd-sm select-none cursor-text">k</kbd>
                         </label>

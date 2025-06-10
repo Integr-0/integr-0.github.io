@@ -142,7 +142,7 @@ footer {
     position: fixed;
     height: 2px;
     width: 100%;
-    top: 3.8rem;
+    top: 4.355rem;
     transform-origin: 0 50%;
     z-index: 20;
     animation: scaleProgress auto linear;
@@ -155,7 +155,7 @@ footer {
     position: fixed;
     height: 5px;
     width: 100%;
-    top: 3.745rem;
+    top: 4.25rem;
     transform-origin: 0 50%;
     z-index: 15;
     animation: scaleProgress auto linear;
