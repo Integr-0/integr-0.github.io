@@ -17,6 +17,7 @@ import mysqlImg from "./assets/img/tool/mysql.svg";
 import springImg from "./assets/img/tool/spring.svg";
 import gitImg from "./assets/img/tool/git.png";
 import vueImg from "./assets/img/tool/vue.png";
+import cImg from "./assets/img/tool/c.png";
 import {
     faChevronDown,
     faCompass,
@@ -97,9 +98,7 @@ function HeroElement(props: Props) {
 
                             <button className="btn btn-primary" onClick={() => {
                                 document.getElementById("skills")!.scrollIntoView()
-                            }}><FontAwesomeIcon icon={faCompass}/>Explore
-                            </button>
-
+                            }}><FontAwesomeIcon icon={faCompass}/>Explore</button>
                         </div>
                     </div>
 
@@ -158,6 +157,7 @@ function SkillsElement(props: Props) {
                                 <ToolImage img={springImg} alt={"Spring"}/>
                                 <ToolImage img={gitImg} alt={"Git"}/>
                                 <ToolImage img={vueImg} alt={"Vue"}/>
+                                <ToolImage img={cImg} alt={"C"}/>
                             </div>
                         </div>
                     </div>
@@ -222,66 +222,66 @@ function Timeline(props: Props) {
 
                         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                             <li>
-                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary m-1"></FontAwesomeIcon>
 
-                                <div className="timeline-start mb-10 md:text-end">
+                                <Section className="timeline-start mb-10 md:text-end" id="beginnings">
                                     <time className="font-mono">2019</time>
                                     <div className="text-lg font-black">Beginnings</div>
                                     In 2019, I started my journey as a software developer. I was fascinated by technology
                                     and wanted to learn more about it. I started with python in the context of embedded programming on
                                     a Raspberry Pi. I quickly fell in love with programming and started my journey.
-                                </div>
+                                </Section>
                                 <hr className="bg-primary"/>
                             </li>
                             <li>
                                 <hr className="bg-primary"/>
-                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary m-1"></FontAwesomeIcon>
 
-                                <div className="timeline-end mb-10">
+                                <Section className="timeline-end mb-10" id="java">
                                     <time className="font-mono">2021</time>
                                     <div className="text-lg font-black">Java</div>
                                     In 2021, I started learning Java development. Although it was a bit challenging at first, I
                                     quickly got the hang of it and started creating projects with it. I have been using Java
                                     ever since and have developed many projects that I am proud of.
-                                </div>
+                                </Section>
                                 <hr className="bg-primary"/>
                             </li>
                             <li>
                                 <hr className="bg-primary"/>
-                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary m-1"></FontAwesomeIcon>
 
-                                <div className="timeline-start mb-10">
+                                <Section className="timeline-start mb-10" id="kotlin">
                                     <time className="font-mono">2023</time>
                                     <div className="text-lg font-black">Kotlin</div>
                                     In 2023, I first discovered Kotlin and fell in love with it. I have been using it ever since
                                     and have been contributing to its community. I have created libraries and tools for Kotlin and
                                     have been using it in my projects.
-                                </div>
+                                </Section>
                                 <hr className="bg-primary"/>
                             </li>
                             <li>
                                 <hr className="bg-primary"/>
-                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faCheckCircle} className="timeline-middle text-primary m-1"></FontAwesomeIcon>
 
-                                <div className="timeline-end mb-10">
+                                <Section className="timeline-end mb-10" id="spring">
                                     <time className="font-mono">2024</time>
                                     <div className="text-lg font-black">Spring & Vue</div>
                                     In 2024, I started learning Spring and Vue. I was amazed by the power of these frameworks and
                                     how they can be used to create powerful applications. I have been using them ever since and
                                     I am still enjoying their use.
-                                </div>
+                                </Section>
                                 <hr />
                             </li>
                             <li>
                                 <hr />
-                                <FontAwesomeIcon icon={faCircleQuestion} className="timeline-middle"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faCircleQuestion} className="timeline-middle m-1"></FontAwesomeIcon>
 
-                                <div className="timeline-start mb-10 md:text-end">
+                                <Section className="timeline-start mb-10 md:text-end" id="end">
                                     <time className="font-mono">...</time>
                                     <div className="text-lg font-black">Next up</div>
                                     Who knows what the future holds? I'm excited to see what the next big thing will be. I'm
                                     looking forward to new technologies and innovations that will shape our world.
-                                </div>
+                                </Section>
                             </li>
                         </ul>
                     </div>

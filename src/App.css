@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght,ROND@900,100&display=swap');
 
-.main-shadow {
-    height: 55px;
-    --bg-size: 200%;
+
+:root {
     --color-one: oklch(var(--p));
     --color-two: oklch(var(--s));
+    --bg-size: 200%;
+
+}
+.main-shadow {
+    height: 55px;
     background: linear-gradient(
             90deg,
             var(--color-one),
@@ -23,9 +27,6 @@
 
 .main-shadow-before {
     height: 55px;
-    --bg-size: 200%;
-    --color-one: oklch(var(--p));
-    --color-two: oklch(var(--s));
     background: linear-gradient(
             90deg,
             var(--color-one),
@@ -134,5 +135,41 @@ footer {
 .section.visible {
     opacity: 1;
     scale: 1;
+}
+
+/*noinspection CssUnknownProperty,CssInvalidFunction,CssInvalidPropertyValue*/
+.progress-bar {
+    position: fixed;
+    height: 2px;
+    width: 100%;
+    top: 3.8rem;
+    transform-origin: 0 50%;
+    z-index: 20;
+    animation: scaleProgress auto linear;
+    background: linear-gradient(to right, var(--color-one), var(--color-two));
+    animation-timeline: scroll(root);
+}
+
+/*noinspection CssUnknownProperty,CssInvalidFunction,CssInvalidPropertyValue*/
+.progress-bar-before {
+    position: fixed;
+    height: 5px;
+    width: 100%;
+    top: 3.745rem;
+    transform-origin: 0 50%;
+    z-index: 15;
+    animation: scaleProgress auto linear;
+    background: linear-gradient(to right, var(--color-one), var(--color-two));
+    animation-timeline: scroll(root);
+    filter: blur(3px);
+}
+
+@keyframes scaleProgress {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
 }
 

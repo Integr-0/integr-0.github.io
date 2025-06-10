@@ -46,92 +46,96 @@ export default function NavBar(props: Props) {
 
     return (
         <>
-            <div className="navbar bg-base-100 fixed z-10 border-b-2 border-b-base-300" id="navbar_anchor">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                            <FontAwesomeIcon icon={faBars}/>
+            <div>
+                <div className="navbar bg-base-100 fixed z-10 border-b-2 border-b-base-300 h-14" id="navbar_anchor">
+                    <div className="navbar-start">
+                        <div className="dropdown">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                                <FontAwesomeIcon icon={faBars}/>
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faCode}/>Skills</a></li>
+                                <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBook}/>Libraries</a></li>
+                                <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faClock}/>Timeline</a></li>
+                                <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBoxesStacked}/>Favourite Stack</a></li>
+                                <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faFolder}/>Repositories</a></li>
+                            </ul>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a onClick={() => document.getElementById("skills")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faCode}/>Skills</a></li>
-                            <li><a onClick={() => document.getElementById("libraries")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBook}/>Libraries</a></li>
-                            <li><a onClick={() => document.getElementById("timeline")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faClock}/>Timeline</a></li>
-                            <li><a onClick={() => document.getElementById("favourites")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faBoxesStacked}/>Favourite Stack</a></li>
-                            <li><a onClick={() => document.getElementById("repos")!.scrollIntoView()} className="btn btn-sm btn-block btn-ghost justify-start"><FontAwesomeIcon icon={faFolder}/>Repositories</a></li>
-                        </ul>
+
+                        <div className="dropdown">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                                <FontAwesomeIcon icon={faPalette}/>
+                            </div>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                <li>
+                                    <input
+                                        type="radio"
+                                        name="theme-dropdown"
+                                        className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                        aria-label="Sunset"
+                                        value="sunset"
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        type="radio"
+                                        name="theme-dropdown"
+                                        className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                        aria-label="Cupcake"
+                                        value="cupcake"
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        type="radio"
+                                        name="theme-dropdown"
+                                        className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                        aria-label="Night"
+                                        value="night"
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        type="radio"
+                                        name="theme-dropdown"
+                                        className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                        aria-label="Dim"
+                                        value="dim"
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        type="radio"
+                                        name="theme-dropdown"
+                                        className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                        aria-label="Valentine"
+                                        value="valentine"
+                                    />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="navbar-center">
+                        <label className="cursor-text input input-bordered hidden items-center gap-2 lg:w-96 lg:flex">
+                            <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                            <input type="text" className="grow" id="search_bar" placeholder="Search"
+                                   onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
+                            <kbd className="kbd kbd-sm select-none cursor-text">ctrl</kbd>
+                            <kbd className="kbd kbd-sm select-none cursor-text">k</kbd>
+                        </label>
                     </div>
 
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                            <FontAwesomeIcon icon={faPalette}/>
-                        </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li>
-                            <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Sunset"
-                                    value="sunset"
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Cupcake"
-                                    value="cupcake"
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Night"
-                                    value="night"
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Dim"
-                                    value="dim"
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Valentine"
-                                    value="valentine"
-                                />
-                            </li>
-                        </ul>
+                    <div className="navbar-end">
+                        <button className="btn btn-ghost btn-circle"
+                                onClick={() => window.open("https://github.com/Integr-0", '_blank')!.focus()}>
+                            <FontAwesomeIcon icon={faGithub} size="xl"/>
+                        </button>
                     </div>
                 </div>
-                <div className="navbar-center">
-                    <label className="cursor-text input input-bordered hidden items-center gap-2 lg:w-96 lg:flex">
-                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                        <input type="text" className="grow" id="search_bar" placeholder="Search"
-                               onKeyUp={() => props.searchCallback((document.getElementById("search_bar")! as HTMLInputElement).value)}/>
-                        <kbd className="kbd kbd-sm select-none cursor-text">ctrl</kbd>
-                        <kbd className="kbd kbd-sm select-none cursor-text">k</kbd>
-                    </label>
-                </div>
-
-                <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle"
-                            onClick={() => window.open("https://github.com/Integr-0", '_blank')!.focus()}>
-                        <FontAwesomeIcon icon={faGithub} size="xl"/>
-                    </button>
-                </div>
+                <div className="progress-bar-before" />
+                <div className="progress-bar" />
             </div>
         </>
     )
